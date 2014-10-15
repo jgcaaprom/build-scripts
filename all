@@ -2,5 +2,5 @@
 # All currently supported targets
 # Start with gcc 4.8 then work up to 5.0
 
-bash all-4.8 && bash all-4.9 && bash all-5.0;
-echo "done with all 4.8-4.9-5.0 targets";
+bash all-4.8 && bash all-4.9;
+echo "done with all 4.8-4.9 targets";

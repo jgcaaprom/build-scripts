@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Build all current stable
-bash arm-androideabi-4.8 && bash arm-eabi-4.9 && bash i686-linux-4.8 && bash x86_64-linux-4.9 && bash i686-linux-android-4.8 && bash x86_64-linux-android-4.9;
-echo "done with all gcc stable";
-
