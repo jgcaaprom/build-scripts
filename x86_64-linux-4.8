@@ -21,6 +21,9 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Make sure gcc is on the right remote branch 4.8.x
 cd ../gcc/gcc-gnu-stable && git fetch gcc-mirror gcc-4_8_2-release && git checkout FETCH_HEAD && cd ../../build;
 
+# Use stable revisions that have been tested for binutils 2.25
+cd ../binutils/binutils-gnu && git fetch gnu-bin-gdb 8d11a5b4c09eeee7463268c82e25281a296cc90a && git checkout FETCH_HEAD && cd ../../build;
+
 # Try to parallelize the build for faster performance.
 JOBS=$(cat /proc/cpuinfo | grep -c processor);
 
