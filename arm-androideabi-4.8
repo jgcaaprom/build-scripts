@@ -54,7 +54,7 @@ then
 fi;
 
 #Build Configuration
-./configure $PREFIX --with-sysroot=/ --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=arm-linux-androideabi --program-transform-name='s&^&arm-linux-androideabi-&' --with-gcc-version=SaberMod --with-pkgversion='SaberMod-4.8.4_android-graphite' --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --with-gold-version=android --enable-gold=default --disable-libsanitizer --disable-libquadmath --disable-libatomic --enable-plugins --enable-threads --disable-option-checking
+./configure $PREFIX --with-sysroot=/ --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=arm-linux-androideabi --program-transform-name='s&^&arm-linux-androideabi-&' --with-gcc-version=SaberMod --with-pkgversion='SaberMod-4.8.4_android-graphite' --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --with-gold-version=android --enable-gold=default --disable-libsanitizer --disable-libquadmath --disable-libatomic --enable-plugins --enable-threads --disable-option-checking --disable-libmudflap
 
 #Build the toolchain
 make $MAKE_FLAGS;
