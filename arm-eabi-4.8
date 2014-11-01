@@ -61,6 +61,10 @@ if [ -d ../cloog/cloog-0.18.2/isl/autom4te.cache ];
 then
     rm -rf ../cloog/cloog-0.18.2/isl/autom4te.cache;
 fi;
+if [ -d ../cloog/cloog-0.18.2/osl/autom4te.cache ];
+then
+    rm -rf ../cloog/cloog-0.18.2/osl/autom4te.cache;
+fi;
 
 #Make a clean install always
 if [ -d "$PREFIX_PATH" ];
