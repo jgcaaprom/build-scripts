@@ -36,15 +36,30 @@ then
     make $MAKE_FLAGS distclean;
 fi;
 
-# Expat and gmp don't always go away
-if [ -e expat-2.0.1 ];
+# Remove all untracked files and directories in git
+if [ -d expat-2.0.1 ];
 then
     rm -rf expat-2.0.1;
 fi;
-
-if [ -e gmp-gnu ];
+if [ -d gmp-gnu ];
 then
     rm -rf gmp-gnu;
+fi;
+if [ -e "../binutils/binutils-gnu/ld/scripttempl/LIGHT_Saber_by_Fraylen.jpg" ];
+then
+    rm -f "../binutils/binutils-gnu/ld/scripttempl/LIGHT_Saber_by_Fraylen.jpg";
+fi;
+if [ -e "../binutils/binutils-gnu/ld/scripttempl/avatar490798_7.gif" ];
+then
+    rm -f "../binutils/binutils-gnu/ld/scripttempl/avatar490798_7.gif";
+fi;
+if [ -d ../isl/isl-0.13/autom4te.cache ];
+then
+    rm -rf ../isl/isl-0.13/autom4te.cache;
+fi;
+if [ -d ../cloog/cloog-0.18.2/isl/autom4te.cache ];
+then
+    rm -rf ../cloog/cloog-0.18.2/isl/autom4te.cache;
 fi;
 
 export PREFIX_PATH=~/tmp/x86_64-linux-4.9;

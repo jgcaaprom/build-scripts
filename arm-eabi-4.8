@@ -36,15 +36,22 @@ then
     $TIME make $J distclean;
 fi;
 
-# Expat and gmp don't always go away
-if [ -e expat-2.0.1 ];
+# Remove all untracked files and directories in git
+if [ -d expat-2.0.1 ];
 then
     rm -rf expat-2.0.1;
 fi;
-
-if [ -e gmp-gnu ];
+if [ -d gmp-gnu ];
 then
     rm -rf gmp-gnu;
+fi;
+if [ -d ../isl/isl-0.13/autom4te.cache ];
+then
+    rm -rf ../isl/isl-0.13/autom4te.cache;
+fi;
+if [ -d ../cloog/cloog-0.18.2/isl/autom4te.cache ];
+then
+    rm -rf ../cloog/cloog-0.18.2/isl/autom4te.cache;
 fi;
 
 #Make a clean install always
