@@ -88,7 +88,7 @@ fi;
 export SYSROOT_SRC_PATH=../sysroot/arch-x86_64;
 export SYSROOT_DEST_PATH=$PREFIX_PATH;
 cp -R $SYSROOT_SRC_PATH -f $SYSROOT_DEST_PATH;
-export SYSROOT="--with-sysroot=$SYSROOT_DEST_PATH/arch-x86_64";
+export SYSROOT=--with-sysroot=$SYSROOT_DEST_PATH/arch-x86_64;
 
 ./configure $PREFIX $SYSROOT --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-gnu --program-transform-name='s&^&x86_64-linux-&' --with-gcc-version=gnu-stable --with-binutils-version=gnu --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=gnu --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --enable-plugins --enable-gold=default --with-gold-version=gnu --enable-threads --disable-option-checking $(GCC_CONFIG_LIBSTDCXX_V3) --enable-libstdcxx;
 

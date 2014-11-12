@@ -78,7 +78,7 @@ fi;
 export SYSROOT_SRC_PATH=../sysroot/arch-x86_64;
 export SYSROOT_DEST_PATH=$PREFIX_PATH;
 cp -R $SYSROOT_SRC_PATH -f $SYSROOT_DEST_PATH;
-export SYSROOT="--with-sysroot=$SYSROOT_DEST_PATH/arch-x86_64";
+export SYSROOT=--with-sysroot=$SYSROOT_DEST_PATH/arch-x86_64;
 
 #Build Configuration
 ./configure $PREFIX $SYSROOT --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-android --program-transform-name='s&^&x86_64-linux-android-&' --with-gcc-version=SaberMod --with-pkgversion='SaberMod-4.9.2_android-graphite' --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --with-gold-version=android --enable-gold=default --enable-plugins --enable-threads --disable-option-checking;
