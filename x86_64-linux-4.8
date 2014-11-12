@@ -85,12 +85,12 @@ else
     mkdir -p $PREFIX_PATH;
 fi;
 
-export SYSROOT_SRC_PATH=../sysroot/arch-x86_64;
+export SYSROOT_SRC_PATH=../sysroot/linux-x86_64;
 export SYSROOT_DEST_PATH=$PREFIX_PATH;
 cp -R $SYSROOT_SRC_PATH -f $SYSROOT_DEST_PATH;
-export SYSROOT=--with-sysroot=$SYSROOT_DEST_PATH/arch-x86_64;
+export SYSROOT=--with-sysroot=$SYSROOT_DEST_PATH/linux-x86_64;
 
-./configure $PREFIX $SYSROOT --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-gnu --program-transform-name='s&^&x86_64-linux-&' --with-gcc-version=SaberMod --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --enable-plugins --enable-gold=default --with-gold-version=android --enable-threads --disable-option-checking $(GCC_CONFIG_LIBSTDCXX_V3) --enable-libstdcxx;
+./configure $PREFIX $SYSROOT --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-gnu --program-transform-name='s&^&x86_64-linux-&' --with-gcc-version=SaberMod --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --enable-plugins --enable-gold=default --with-gold-version=android --enable-threads --disable-option-checking $(GCC_CONFIG_LIBSTDCXX_V3) --enable-libstdcxx --disable-libsanitizer --disable-libatomic --disable-libquadmath --disable-libgomp --disable-libmudflap;
 
 # Build the toolchain
 make $MAKE_FLAGS;
