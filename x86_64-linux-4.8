@@ -27,7 +27,7 @@ panic ()
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Make sure gcc is on the right remote branch 4.8.x
-cd ../gcc/gcc-SaberMod && git fetch sm 4.8.4 && git checkout FETCH_HEAD && cd ../../build;
+cd ../gcc/gcc-gnu-stable && git fetch gcc-mirror gcc-4_8_2-release && git checkout FETCH_HEAD && cd ../../build;
 
 # Try to parallelize the build for faster performance.
 JOBS=$(cat /proc/cpuinfo | grep -c processor);
@@ -82,15 +82,10 @@ then
     rm -rf $PREFIX_PATH;
     mkdir -p $PREFIX_PATH;
 else
-    mkdir -p $PREFIX_PATH;
+    mkdir -p $PREFIX_PATH
 fi;
 
-export SYSROOT_SRC_PATH=../sysroot/linux-x86_64;
-export SYSROOT_DEST_PATH=$PREFIX_PATH;
-cp -R $SYSROOT_SRC_PATH -f $SYSROOT_DEST_PATH;
-export SYSROOT=--with-sysroot=$SYSROOT_DEST_PATH/linux-x86_64;
-
-./configure $PREFIX $SYSROOT --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-gnu --program-transform-name='s&^&x86_64-linux-&' --with-gcc-version=SaberMod --with-binutils-version=android --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=android --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --enable-plugins --enable-gold=default --with-gold-version=android --enable-threads --disable-option-checking $(GCC_CONFIG_LIBSTDCXX_V3) --enable-libstdcxx --disable-libsanitizer --disable-libatomic --disable-libquadmath --disable-libgomp --disable-libmudflap;
+./configure $PREFIX --with-sysroot=/ --host=x86_64-linux-gnu --build=x86_64-linux-gnu --target=x86_64-linux-gnu --program-transform-name='s&^&x86_64-linux-&' --with-gcc-version=gnu-stable --with-binutils-version=gnu --with-gmp-version=gnu --with-mpfr-version=gnu --with-gdb-version=gnu --with-mpc-version=gnu --with-cloog-version=0.18.2 --with-isl-version=0.13 --enable-graphite=yes --enable-plugins --disable-libsanitizer --disable-libquadmath --disable-libatomic --enable-gold=default --with-gold-version=gnu --enable-threads --disable-option-checking $(GCC_CONFIG_LIBSTDCXX_V3) --enable-libstdcxx
 
 # Build the toolchain
 make $MAKE_FLAGS;
